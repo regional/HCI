@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="MEDICAL.styles.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    </head>
+
+<body><!--Blazor:{"type":"server","prerenderId":"1d6ff29543994ee48c059fa6830cb76d","key":{"locationHash":"6B5DFE1207296CEAF31E1A333011B4E1869488366853255D18C3F3A00BFCB39E:0","formattedComponentKey":""},"sequence":0,"descriptor":"CfDJ8PUeI\u002Bb1IgJDtXlYKXwj8HU4zRj7D9EbEXVlRgJ1A9e5MiZS5HLP7HC0jgbMEo8SSkv0ICXAA7g3CBGJXlG88pwwWpTAvlZdmwMIzCfG0muguxqOtOLQMXAb2QoQ\u002BRiV\u002B7bzfi7nzfFYY/iBhwNvwYbAwPInNa084W3jHnschmjAxoNIhiKsgDgXsZ0fEGC9LBCJP3Vp2M4BVG/2hgCB\u002B1GQmCS7mEzD13T4dCRERdYe9FoufhYrlgcoWJwLe5UNqr/qieaI4JJkaYYcD\u002B7We62mGM0irfQMn8LLBStk4X/njy5YlePaRqEeODxZlDTCP11SIWzQ6YyAZgauGm0F0Oy8EANXNqt56PaEImTSKFijMEYe/\u002B2KLEQDioMTSOncffaPkNGe5cvws2wlA8xhjFHmviG1FO9rvcfiN0/2ni8wUVbM6D8R\u002B5ukEG065NPKJyJiHfL0SEVi3rvN5iCaktsUEnotduXvk595Hvn5gSNeD6fDxAjHtFzwUpMk7DHKKUwm1363rH0pk4XF\u002B1aeodU="}--><!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUMAN-COMPUTER INTEGRATION AND DIGITAL CITIZENSHIP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --dark-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --text-primary: #1a1a2e;
+            --text-secondary: #6c757d;
+            --shadow-light: 0 8px 32px rgba(31, 38, 135, 0.15);
+            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --border-radius: 24px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #f8fafc;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+            .navbar.scrolled {
+                backdrop-filter: blur(30px);
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: var(--shadow-light);
+            }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-primary) !important;
+            position: relative;
+            transition: var(--transition);
+            border-radius: 12px;
+            padding: 8px 16px !important;
+        }
+
+            .nav-link:hover {
+                background: rgba(102, 126, 234, 0.1);
+                transform: translateY(-2px);
+            }
+
+        .btn-nav {
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-nav-login {
+            background: transparent;
+            color: var(--text-primary);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+            .btn-nav-login:hover {
+                background: var(--primary-gradient);
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            }
+
+        .btn-nav-register {
+            background: var(--secondary-gradient);
+            color: white;
+            box-shadow: 0 6px 20px rgba(245, 87, 108, 0.3);
+        }
+
+            .btn-nav-register:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 40px rgba(245, 87, 108, 0.4);
+            }
+
+        /* Hero Section with 3D Elements */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+            .hero-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="7" cy="7" r="4"></circle><circle cx="53" cy="7" r="4"></circle><circle cx="7" cy="53" r="4"></circle><circle cx="53" cy="53" r="4"></circle><circle cx="30" cy="30" r="4"></circle></g></svg>');
+                animation: float 20s ease-in-out infinite;
+            }
+
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            color: white;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero {
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-hero-primary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+            .btn-hero-primary:hover {
+                background: white;
+                color: #667eea;
+                transform: translateY(-4px);
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            }
+
+        .btn-hero-secondary {
+            background: var(--secondary-gradient);
+            color: white;
+            box-shadow: 0 10px 40px rgba(245, 87, 108, 0.4);
+        }
+
+            .btn-hero-secondary:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 20px 60px rgba(245, 87, 108, 0.5);
+            }
+
+        /* Floating 3D Cards */
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            color: white;
+            animation: floatCard 6s ease-in-out infinite;
+        }
+
+        .floating-card-1 {
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-card-2 {
+            bottom: 30%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+
+
+        /* Glassmorphism Features */
+        .features-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 4rem;
+            font-weight: 400;
+        }
+
+        .feature-card-modern {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .feature-card-modern::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: var(--primary-gradient);
+                transform: scaleX(0);
+                transition: var(--transition);
+            }
+
+            .feature-card-modern:hover::before {
+                transform: scaleX(1);
+            }
+
+            .feature-card-modern:hover {
+                transform: translateY(-10px);
+                box-shadow: var(--shadow-heavy);
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+        .feature-icon-modern {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: var(--primary-gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .feature-card-modern:hover .feature-icon-modern {
+            transform: rotateY(180deg);
+        }
+
+        /* Stats with Animated Numbers */
+        .stats-section {
+            padding: 100px 0;
+            background: var(--dark-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .stats-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.05"></path></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"></rect></svg>');
+            }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+            transition: var(--transition);
+        }
+
+            .stat-card:hover {
+                transform: translateY(-5px);
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: var(--success-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Modern News Cards */
+        .news-section {
+            padding: 120px 0;
+            background: #ffffff;
+        }
+
+        .news-card-modern {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+            .news-card-modern:hover {
+                transform: translateY(-10px);
+                box-shadow: var(--shadow-heavy);
+            }
+
+        .news-image-modern {
+            height: 250px;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .news-image-modern::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+                transform: translateX(-100%);
+                transition: transform 0.6s;
+            }
+
+        .news-card-modern:hover .news-image-modern::before {
+            transform: translateX(100%);
+        }
+
+        /* Footer with Gradient */
+        .footer-modern {
+            background: var(--dark-gradient);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+            .footer-modern::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background: var(--primary-gradient);
+            }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            padding: 8px 0;
+            display: block;
+        }
+
+            .footer-link:hover {
+                color: white;
+                transform: translateX(5px);
+            }
+
+
+
+        .btn-hero {
+            width: 280px;
+        }
+
+        .floating-card {
+            display: none;
+        }
+
+        .navbar-nav {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+
+        }
+
+        /* Scroll Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(60px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gradient);
+            border-radius: 4px;
+        }
+
+        
+
+        {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+
+        }
+
+        
+
+        {
+            transform: translateY(0px) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-20px) rotate(5deg);
+        }
+
+        }
+
+       
+
+        {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        }
+    </style></head>
+<body><nav class="navbar navbar-expand-lg fixed-top"><div class="container"><a class="navbar-brand" href="#"><i class="fas fa-dna me-2"></i>HCI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="#syllabus">Syllabus</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#instructor">Instructor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li></ul>
+                <div class="d-flex gap-2"><a href="/login" class="btn-nav btn-nav-login"><i class="fas fa-sign-in-alt me-2"></i>Login
+                    </a>
+                    <a href="/Account/Register" class="btn-nav btn-nav-register"><i class="fas fa-rocket me-2"></i>Get Started
+                    </a></div></div></div></nav>
+
+    
+    <section class="hero-section"><div class="container"><div class="row align-items-center"><div class="col-lg-8"><div class="hero-content fade-in-up"><h1 class="hero-title"><br>
+                            <span style="background: linear-gradient(45deg, #f093fb, #f5576c); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">HCI-HUMAN-COMPUTER INTEGRATION</span><br>
+                            (CSE6061)
+                        </h1>
+                       
+                            <p class="hero-subtitle">
+                                ¿Qué es Interacción Humano-Computadora (HCI)? La Interacción Persona-Computadora (Human–Computer Interaction, HCI), por sus
+                                siglas en inglés) es un campo multidisciplinario que se enfoca en el diseño, implementación y evaluación de sistemas informáticos
+                                interactivos para uso humano.
+
+                                Este campo combina aspectos de la informática, la psicología, la ergonomía, el diseño, y las ciencias cognitivas para mejorar
+                                la usabilidad y la experiencia del usuario con la tecnología, buscando hacer las interfaces más intuitivas, eficientes y
+                                accesibles.
+                            </p>
+                       
+                        <p class="hero-subtitle">
+                            ¿Qué es Ciudadanía Digital?
+                            La Ciudadanía Digital se refiere a las normas de comportamiento responsable, ético
+                            y seguro que deben seguir los usuarios al interactuar en entornos digitales. Esto
+                            incluye la comprensión y el ejercicio de derechos y deberes en el uso responsable
+                            de la tecnología e Internet, la protección de la privacidad, la seguridad en línea, el
+                            respeto a la propiedad intelectual, la participación cívica y política digital, y la
+                            promoción de un comportamiento positivo y constructivo en redes sociales y otras
+                            plataformas digitales.
+                        </p>
+                        <p class="hero-subtitle">
+                            ¿Cómo se articulan el HCI y la Ciudadanía Digital?
+                            La Interacción Persona-Computadora (HCI) y la ciudadanía digital se articulan en
+                            la medida en que ambos campos buscan mejorar la interacción de los individuos
+                            con la tecnología de manera responsable, eficiente y ética. HCI se centra en
+                            diseñar sistemas e interfaces que sean intuitivos y accesibles para los usuarios,
+                            mientras que la ciudadanía digital promueve un uso seguro, ético y responsable de
+                            estas tecnologías. Juntos, HCI y la ciudadanía digital contribuyen a una mejor
+                            experiencia del usuario y a una sociedad digital más informada y participativa,
+                            asegurando que las personas no solo puedan utilizar las tecnologías de manera
+                            efectiva, sino también hacerlo de manera que respete los derechos y deberes
+                            digitales, promueva la seguridad en línea y fomente un comportamiento positivo en
+                            entornos digitales.
+
+                        </p>
+                        <div class="hero-buttons"><a href="/login" class="btn-hero btn-hero-primary"><i class="fas fa-sign-in-alt me-2"></i>Access Platform
+                            </a>
+                            <a href="/Account/Register" class="btn-hero btn-hero-secondary"><i class="fas fa-rocket me-2"></i>Start Free Trial
+                            </a></div></div></div></div></div>
+
+        
+        <div class="floating-card floating-card-1"><div class="d-flex align-items-center"><i class="fas fa-users me-3" style="font-size: 2rem;"></i>
+                <div><h6 class="mb-1">User-Centered Design</h6>
+                    <small>ISO 9241-210 Standards</small></div></div></div>
+
+        <div class="floating-card floating-card-2"><div class="d-flex align-items-center"><i class="fas fa-shield-alt me-3" style="font-size: 2rem;"></i>
+                <div><h6 class="mb-1">Digital Ethics</h6>
+                    <small>Privacy & Inclusion</small></div></div></div></section>
+
+    
+    <section class="features-section" id="syllabus"><div class="container"><div class="fade-in-up"><h2 class="section-title">Course Objectives & Topics</h2>
+                <p class="section-subtitle">Fundamentals of HCI integrated with Digital Citizenship</p></div>
+
+            <div class="row g-4 mt-4"><div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.1s;"><div class="feature-card-modern"><div class="feature-icon-modern"><i class="fas fa-brain"></i></div>
+                        <h4 class="mb-3 fw-bold">HCI Fundamentals</h4>
+                        <p class="text-muted">Understand HCI concepts, UI components, usability, accessibility, heuristics, UX, and IxD. Explore challenges in software development.</p></div></div>
+
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.2s;"><div class="feature-card-modern"><div class="feature-icon-modern"><i class="fas fa-user-check"></i></div>
+                        <h4 class="mb-3 fw-bold">User-Centered Design</h4>
+                        <p class="text-muted">Apply ISO 9241-210, Morgan HCI Model, Usability Engineering Process. Create low-fidelity prototypes with tools like Figma and Pencil.</p></div></div>
+
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.3s;"><div class="feature-card-modern"><div class="feature-icon-modern"><i class="fas fa-users-cog"></i></div>
+                        <h4 class="mb-3 fw-bold">Human Factors Model</h4>
+                        <p class="text-muted">Cognitive psychology, human limitations, perception, cognition in HCI. Ethics, inclusion, privacy, and digital literacy implications.</p></div></div>
+
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.4s;"><div class="feature-card-modern"><div class="feature-icon-modern"><i class="fas fa-code-branch"></i></div>
+                        <h4 class="mb-3 fw-bold">High-Fidelity Prototyping</h4>
+                        <p class="text-muted">Scrum agile methodology, user analysis, conceptual design, visual style, NoSQL data modeling, web implementation.</p></div></div>
+
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.5s;"><div class="feature-card-modern"><div class="feature-icon-modern"><i class="fas fa-globe"></i></div>
+                        <h4 class="mb-3 fw-bold">HCI & Digital Citizenship</h4>
+                        <p class="text-muted">Ethical responsibility, healthy digital culture, UX improvement, legal compliance, societal impact.</p></div></div>
+
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.6s;"><div class="feature-card-modern"><div class="feature-icon-modern"><i class="fas fa-search"></i></div>
+                        <h4 class="mb-3 fw-bold">Usability Evaluation</h4>
+                        <p class="text-muted">Inspection, inquiry, testing methods. ISO/IEC 25010 quality, accessibility tools, navigation tests, UX metrics.</p></div></div></div></div></section>
+
+    
+    <section class="stats-section" id="schedule"><div class="container"><div class="row g-4"><div class="col-lg-3 col-md-6"><div class="stat-card fade-in-up" style="animation-delay: 0.1s;"><span class="stat-number">10</span>
+                        <h6 class="text-white-50">Weeks</h6>
+                        <p class="text-white-50 mb-0">Comprehensive Curriculum</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="stat-card fade-in-up" style="animation-delay: 0.2s;"><span class="stat-number">3</span>
+                        <h6 class="text-white-50">SCH Credits</h6>
+                        <p class="text-white-50 mb-0">Master's Level Course</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="stat-card fade-in-up" style="animation-delay: 0.3s;"><span class="stat-number">Sat 8:30AM</span>
+                        <h6 class="text-white-50">Video Classes</h6>
+                        <p class="text-white-50 mb-0">Miami Time (GMT-4)</p></div></div>
+                <div class="col-lg-3 col-md-6"><div class="stat-card fade-in-up" style="animation-delay: 0.4s;"><span class="stat-number">Tue/Thu 6PM</span>
+                        <h6 class="text-white-50">Consultations</h6>
+                        <p class="text-white-50 mb-0">Email Support Hours</p></div></div></div></div></section>
+
+    
+    <section class="news-section" id="resources"><div class="container"><div class="fade-in-up"><h2 class="section-title">Key Resources & References</h2>
+                <p class="section-subtitle">Essential readings, videos, and tools for HCI mastery</p></div>
+
+            <div class="row g-4 mt-4"><div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.1s;"><div class="news-card-modern"><div class="news-image-modern"><i class="fas fa-book"></i></div>
+                        <div class="p-4"><h5 class="fw-bold mb-3">HCI Fundamentals Book</h5>
+                            <p class="text-muted mb-3">Kim, G. J. (2015). Human-computer interaction: fundamentals and practice. CRC Press.</p>
+                            <div class="d-flex align-items-center"><small class="text-muted me-auto">Core Reference</small>
+                                <span class="badge" style="background: var(--success-gradient); border: none;">Required</span></div></div></div></div>
+
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.2s;"><div class="news-card-modern"><div class="news-image-modern"><i class="fas fa-video"></i></div>
+                        <div class="p-4"><h5 class="fw-bold mb-3">Usability Engineering Course</h5>
+                            <p class="text-muted mb-3">MPIu+a Model: Fundamentals of Usability, Accessibility, UX. Available at mpiua.invid.udl.cat.</p>
+                            <div class="d-flex align-items-center"><small class="text-muted me-auto">Online Module</small>
+                                <span class="badge" style="background: var(--warning-gradient); border: none;">Video</span></div></div></div></div>
+
+                <div class="col-lg-4 col-md-6 fade-in-up" style="animation-delay: 0.3s;"><div class="news-card-modern"><div class="news-image-modern"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="p-4"><h5 class="fw-bold mb-3">Digital Citizenship Guide</h5>
+                            <p class="text-muted mb-3">UNICEF (2017). Guía de convivencia digital. Ethical and responsible online behavior.</p>
+                            <div class="d-flex align-items-center"><small class="text-muted me-auto">Policy Resource</small>
+                                <span class="badge" style="background: var(--secondary-gradient); border: none;">Ethics</span></div></div></div></div></div></div></section>
+
+    
+    <section class="features-section" id="instructor"><div class="container"><div class="fade-in-up"><h2 class="section-title">Meet Your Instructor</h2>
+                <p class="section-subtitle">Ing. Walter Fuertes, PhD - Expert in HCI & Digital Ethics</p></div>
+            <div class="row g-4 mt-4"><div class="col-lg-8 mx-auto"><div class="feature-card-modern text-center"><img src="https://via.placeholder.com/200x200/667eea/ffffff?text=WF" alt="Walter Fuertes" class="rounded-circle mb-4" style="width: 150px; height: 150px; object-fit: cover;">
+                        <h4 class="mb-3 fw-bold">Walter Marcelo Fuertes</h4>
+                        <p class="text-muted mb-3">Doctor in Computer Engineering and Telecommunications. Faculty at BIU. Email: wmfuertes@faculty.biu.us</p>
+                        <p class="text-muted">"Welcome to HCI and Digital Citizenship. This course provides guidelines for building theoretical and practical knowledge in HCI software design and digital citizenship, creating intuitive, efficient, and accessible user interfaces while addressing ethical and social challenges."</p></div></div></div></div></section>
+
+    
+    <footer class="footer-modern" id="contact"><div class="container"><div class="row g-4 mb-5"><div class="col-lg-4"><div class="fade-in-up"><h4 class="mb-4"><i class="fas fa-university me-2"></i>BIU - CSE6061
+                        </h4>
+                        <p class="text-white-50 mb-4">
+                            Master of Science in Computer Software Engineering. Focus on ethical, inclusive, and responsible technology design.
+                        </p>
+                        <div class="d-flex gap-3"><a href="#" class="btn btn-outline-light rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn btn-outline-light rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="btn btn-outline-light rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-light rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-youtube"></i></a></div></div></div>
+
+                <div class="col-lg-2 col-md-6"><div class="fade-in-up" style="animation-delay: 0.1s;"><h6 class="mb-3 fw-bold">Topics</h6>
+                        <div class="d-flex flex-column gap-2"><a href="#" class="footer-link">HCI Fundamentals</a>
+                            <a href="#" class="footer-link">User-Centered Design</a>
+                            <a href="#" class="footer-link">Prototyping</a>
+                            <a href="#" class="footer-link">Evaluation</a>
+                            <a href="#" class="footer-link">Trends</a></div></div></div>
+
+                <div class="col-lg-2 col-md-6"><div class="fade-in-up" style="animation-delay: 0.2s;"><h6 class="mb-3 fw-bold">Schedule</h6>
+                        <div class="d-flex flex-column gap-2"><a href="#" class="footer-link">Saturdays 8:30 AM</a>
+                            <a href="#" class="footer-link">Tue/Thu Consults</a>
+                            <a href="#" class="footer-link">Week 1-10 Plan</a>
+                            <a href="#" class="footer-link">Case Study</a>
+                            <a href="#" class="footer-link">Exams</a></div></div></div>
+
+                <div class="col-lg-2 col-md-6"><div class="fade-in-up" style="animation-delay: 0.3s;"><h6 class="mb-3 fw-bold">Resources</h6>
+                        <div class="d-flex flex-column gap-2"><a href="#" class="footer-link">Books & PDFs</a>
+                            <a href="#" class="footer-link">Videos</a>
+                            <a href="#" class="footer-link">Tools (Figma)</a>
+                            <a href="#" class="footer-link">ISO Standards</a>
+                            <a href="#" class="footer-link">Ethics Guides</a></div></div></div>
+
+                <div class="col-lg-2 col-md-6"><div class="fade-in-up" style="animation-delay: 0.4s;"><h6 class="mb-3 fw-bold">Support</h6>
+                        <div class="d-flex flex-column gap-2"><a href="/login" class="footer-link"><i class="fas fa-sign-in-alt me-2"></i>Sign In
+                            </a>
+                            <a href="/Account/Register" class="footer-link"><i class="fas fa-user-plus me-2"></i>Register
+                            </a>
+                            <a href="mailto:wmfuertes@faculty.biu.us" class="footer-link">Email Instructor</a>
+                            <a href="#" class="footer-link">Help Center</a>
+                            <a href="#" class="footer-link">Contact BIU</a></div></div></div></div>
+
+            <hr style="border-color: rgba(255, 255, 255, 0.1); margin: 3rem 0 2rem;">
+
+            <div class="row align-items-center"><div class="col-md-6"><p class="mb-0 text-white-50">
+                        © 2025 BIU University. All rights reserved.
+                        <span style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            CSE6061 - Summer 2025
+                        </span></p></div>
+                <div class="col-md-6 text-md-end"><div class="d-flex gap-4 justify-content-md-end justify-content-start mt-3 mt-md-0"><a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                        <a href="https://biu.us" class="footer-link">BIU Home</a></div></div></div></div></footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        // Animated counter for stats
+        const animateCounter = (element, target) => {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+
+                // Format the number
+                let displayValue = Math.floor(current);
+                if (target >= 1000000) {
+                    displayValue = (displayValue / 1000000).toFixed(1) + 'M';
+                } else if (target >= 1000) {
+                    displayValue = (displayValue / 1000).toFixed(1) + 'K';
+                }
+
+                // Special handling for percentage and rating
+                if (element.textContent.includes('%')) {
+                    displayValue = Math.floor(current) + '%';
+                } else if (element.textContent.includes('★')) {
+                    displayValue = (current / 1000).toFixed(1) + '★';
+                }
+
+                element.textContent = displayValue;
+            }, 20);
+        };
+
+        // Trigger counter animations when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const text = stat.textContent;
+                        let target = 0;
+
+                        if (text.includes('M')) {
+                            target = parseFloat(text) * 1000000;
+                        } else if (text.includes('K')) {
+                            target = parseFloat(text) * 1000;
+                        } else if (text.includes('%')) {
+                            target = parseFloat(text) * 10; // Scale for animation
+                        } else if (text.includes('★')) {
+                            target = parseFloat(text) * 1000; // Scale for animation
+                        }
+
+                        if (target > 0) {
+                            stat.textContent = '0';
+                            animateCounter(stat, target);
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-section');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Dynamic gradient colors
+        const updateGradients = () => {
+            const time = Date.now() * 0.0002;
+            const hue1 = Math.sin(time) * 30 + 240;
+            const hue2 = Math.sin(time + 1) * 30 + 280;
+
+            document.documentElement.style.setProperty(
+                '--primary-gradient',
+                `linear-gradient(135deg, hsl(${hue1}, 70%, 60%) 0%, hsl(${hue2}, 70%, 60%) 100%)`
+            );
+        };
+
+        // Update gradients every 5 seconds for subtle color changes
+        setInterval(updateGradients, 5000);
+    </script></body></html><!--Blazor:{"prerenderId":"1d6ff29543994ee48c059fa6830cb76d"}-->
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span></div>
+
+<style>
+    #blazor-error-ui {
+        background: lightyellow;
+        bottom: 0;
+        box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+        display: none;
+        left: 0;
+        padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+    }
+
+        #blazor-error-ui .dismiss {
+            cursor: pointer;
+            position: absolute;
+            right: 0.75rem;
+            top: 0.5rem;
+        }
+</style>
+        <blazor-focus-on-navigate selector="h1"></blazor-focus-on-navigate>
+    <script src="_framework/blazor.web.js"></script></body></html><!--Blazor-Server-Component-State:CfDJ8PUeI+b1IgJDtXlYKXwj8HUzKh+8uSxzmVVY2I+Pl+90PC24xV6BsnEcPZmjLBRwxuOQm5GmJzYTr7ouvvmztvtXG2gFo0WVgCbB0EO+5TvUY++LURFWnJXnpL5eUPbw6qXn6uq0J6qBq+RI1b7FzAZBS5ML8HoVyVkeOTO1TdCFvDNC/nd9qcn5qRCTkN23pD157vz4BDnBabeh+swvZW8yRsnDQ2BSi1bfLL3W6Hibg3GtXsmbZWx7vDnZyuFbz5PDiMFgi6kNtYqm+PEBKrcIGAhQxpK6ZKP9xYoYaBx3vqZ30vQMwzLYhC6spRPyfDpiBUYzCIIx/4OUCMs7uYt8ND6G3QJoivorabEUI1Wwx6pHr0ef9H/itC+77E9FDJAir9Qdgfb4YsQ4rWG6ySF+HXrku53kubK6LKtHx9KeNzNkwMGKFeeGz8NA9NW9q+PpMr1zA2in10SvBbLeHqEBZK/hGZxeiaOuIKYrD7RN6PHzFtxLfOGj83X3WrQDnsUIzuL/TwA3sxlf9U6XWK4Ac4I9jerEDLFRCO/Wgt1D-->
